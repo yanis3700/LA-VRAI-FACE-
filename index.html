@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>La Vraie Face</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #171717;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 22px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #ccc;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: white;
+    }
+
+    .hero h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .search {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search input {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 15px 20px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+    }
+
+    .score {
+      font-size: 40px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .good {
+      color: #16803c;
+    }
+
+    .poll {
+      margin-top: 20px;
+    }
+
+    .poll button {
+      width: 100%;
+      margin-top: 10px;
+      background: #eee;
+      color: #111;
+    }
+
+    .poll button:hover {
+      background: #ddd;
+    }
+
+    .review {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .search {
+        flex-direction: column;
+      }
+
+      .hero h2 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>LA VRAIE FACE</h1>
+    <p>Découvrez l'ambiance réelle des entreprises et restaurants.</p>
+  </header>
+
+  <section class="hero">
+    <h2>Quelle est la vraie ambiance ?</h2>
+
+    <p>
+      Recherchez une entreprise, un restaurant ou un commerce
+      et découvrez les expériences des clients et employés.
+    </p>
+
+    <div class="search">
+      <input
+        type="text"
+        id="search"
+        placeholder="Ex : Restaurant Dupont"
+      >
+
+      <button onclick="rechercher()">
+        Rechercher
+      </button>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <div class="card" id="resultat">
+
+      <h3>Exemple : Restaurant Dupont</h3>
+
+      <p>Atmosphère générale</p>
+
+      <div class="score good">
+        82%
+      </div>
+
+      <p>
+        🟢 Atmosphère actuellement évaluée comme
+        <strong>plutôt positive</strong>.
+      </p>
+
+      <div class="poll">
+
+        <h3>Comment décririez-vous cet endroit ?</h3>
+
+        <button onclick="voter('Respectueux')">
+          👍 Respectueux
+        </button>
+
+        <button onclick="voter('Mitigé')">
+          😐 Mitigé
+        </button>
+
+        <button onclick="voter('Problématique')">
+          ⚠️ Problématique
+        </button>
+
+      </div>
+
+      <div class="review">
+        <button onclick="avis()">
+          ✍️ Donner mon avis
+        </button>
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <h3>🛡️ Notre objectif</h3>
+
+      <p>
+        Permettre à chacun de partager son expérience
+        et d'avoir une meilleure idée de l'atmosphère
+        d'une entreprise ou d'un établissement.
+      </p>
+
+      <br>
+
+      <p>
+        Les résultats sont basés sur les avis et sondages
+        des utilisateurs.
+      </p>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 La Vraie Face — Projet communautaire
+  </footer>
+
+  <script>
+
+    function rechercher() {
+
+      const recherche =
+        document.getElementById("search").value;
+
+      if (recherche.trim() === "") {
+        alert("Écrivez le nom d'une entreprise ou d'un restaurant.");
+        return;
+      }
+
+      document.querySelector("#resultat h3").textContent =
+        recherche;
+
+      window.scrollTo({
+        top: 300,
+        behavior: "smooth"
+      });
+    }
+
+    function voter(reponse) {
+
+      alert(
+        "Merci pour votre réponse : " + reponse
+      );
+    }
+
+    function avis() {
+
+      alert(
+        "La fonction pour publier un avis sera ajoutée prochainement."
+      );
+    }
+
+  </script>
+
+</body>
+</html>
