@@ -37,7 +37,6 @@
 
     header p {
       color: #ccc;
-      font-size: 15px;
     }
 
     .hero {
@@ -70,11 +69,6 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       font-size: 16px;
-      outline: none;
-    }
-
-    .search input:focus {
-      border-color: #111;
     }
 
     button {
@@ -105,10 +99,6 @@
       box-shadow: 0 3px 15px rgba(0,0,0,0.07);
     }
 
-    .card h3 {
-      margin-bottom: 15px;
-    }
-
     .score {
       font-size: 46px;
       font-weight: bold;
@@ -117,6 +107,14 @@
 
     .good {
       color: #16803c;
+    }
+
+    .neutral {
+      color: #777;
+    }
+
+    .bad {
+      color: #c62828;
     }
 
     .poll {
@@ -133,6 +131,13 @@
 
     .poll button:hover {
       background: #ddd;
+    }
+
+    .message {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 10px;
     }
 
     .review {
@@ -159,7 +164,6 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: 40px;
-      font-size: 14px;
     }
 
     @media (max-width: 600px) {
@@ -232,22 +236,27 @@
 
     <div class="card" id="resultat">
 
-      <h3>Restaurant Dupont</h3>
+      <h3 id="nomEtablissement">
+        Aucun établissement recherché
+      </h3>
 
-      <p>Atmosphère générale</p>
+      <p>Évaluation de la communauté</p>
 
-      <div class="score good">
-        82%
+      <div class="score neutral" id="score">
+        Pas encore évalué
       </div>
 
-      <p>
-        🟢 Atmosphère actuellement évaluée comme
-        <strong>plutôt positive</strong>.
+      <p id="description">
+        Recherchez un établissement pour commencer.
       </p>
+
+      <div class="message" id="compteur">
+        Aucun vote pour le moment.
+      </div>
 
       <div class="poll">
 
-        <h3>Comment décririez-vous cet endroit ?</h3>
+        <h3>Quel est votre ressenti ?</h3>
 
         <button onclick="voter('Respectueux')">
           👍 Respectueux
@@ -284,7 +293,7 @@
       </p>
 
       <p>
-        Les évaluations sont basées sur les participations
+        Les résultats sont basés sur les participations
         des utilisateurs et ne constituent pas une vérité absolue.
       </p>
 
@@ -297,6 +306,12 @@
   </footer>
 
   <script>
+
+    let votes = {
+      Respectueux: 0,
+      Mitigé: 0,
+      Problématique: 0
+    };
 
     function rechercher() {
 
@@ -312,8 +327,16 @@
         return;
       }
 
-      document.querySelector("#resultat h3").textContent =
+      document.getElementById("nomEtablissement").textContent =
         recherche;
+
+      votes = {
+        Respectueux: 0,
+        Mitigé: 0,
+        Problématique: 0
+      };
+
+      mettreAJourScore();
 
       window.scrollTo({
         top: 300,
@@ -323,9 +346,89 @@
 
     function voter(reponse) {
 
+      votes[reponse]++;
+
+      mettreAJourScore();
+
       alert(
-        "Merci pour votre réponse : " + reponse
+        "Merci pour votre vote : " + reponse
       );
+    }
+
+    function mettreAJourScore() {
+
+      const total =
+        votes.Respectueux +
+        votes.Mitigé +
+        votes.Problématique;
+
+      const scoreElement =
+        document.getElementById("score");
+
+      const description =
+        document.getElementById("description");
+
+      const compteur =
+        document.getElementById("compteur");
+
+      if (total === 0) {
+
+        scoreElement.textContent =
+          "Pas encore évalué";
+
+        scoreElement.className =
+          "score neutral";
+
+        description.textContent =
+          "Il n'y a pas encore assez de données.";
+
+        compteur.textContent =
+          "Aucun vote pour le moment.";
+
+        return;
+      }
+
+      const score =
+        Math.round(
+          (votes.Respectueux / total) * 100
+        );
+
+      scoreElement.textContent =
+        score + "%";
+
+      if (score >= 70) {
+
+        scoreElement.className =
+          "score good";
+
+        description.textContent =
+          "🟢 Les votes indiquent une ambiance plutôt positive.";
+
+      } else if (score >= 40) {
+
+        scoreElement.className =
+          "score neutral";
+
+        description.textContent =
+          "🟡 Les votes indiquent une ambiance mitigée.";
+
+      } else {
+
+        scoreElement.className =
+          "score bad";
+
+        description.textContent =
+          "🔴 Les votes indiquent une ambiance actuellement problématique.";
+      }
+
+      compteur.textContent =
+        total +
+        " vote(s) — 👍 " +
+        votes.Respectueux +
+        " | 😐 " +
+        votes.Mitigé +
+        " | ⚠️ " +
+        votes.Problématique;
     }
 
     function avis() {
