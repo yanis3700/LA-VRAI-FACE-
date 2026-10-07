@@ -142,11 +142,62 @@
 
     .review {
       margin-top: 25px;
-      text-align: center;
     }
 
-    .review button {
+    .review > button {
       width: 100%;
+    }
+
+    .review-form {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #f7f7f7;
+      border-radius: 12px;
+    }
+
+    .review-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .review-form input,
+    .review-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    .review-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .optional {
+      font-size: 13px;
+      color: #777;
+      font-weight: normal;
+    }
+
+    .review-form .publish {
+      width: 100%;
+    }
+
+    .avis {
+      margin-top: 20px;
+      padding: 18px;
+      border-left: 4px solid #111;
+      background: #fafafa;
+      border-radius: 8px;
+    }
+
+    .avis p {
+      margin-top: 8px;
     }
 
     .info {
@@ -221,10 +272,9 @@
         type="text"
         id="search"
         placeholder="Ex : Restaurant Dupont"
-        aria-label="Rechercher un établissement"
       >
 
-      <button onclick="rechercher()">
+      <button type="button" onclick="rechercher()">
         Rechercher
       </button>
 
@@ -234,7 +284,7 @@
 
   <main class="container">
 
-    <div class="card" id="resultat">
+    <div class="card">
 
       <h3 id="nomEtablissement">
         Aucun établissement recherché
@@ -258,15 +308,15 @@
 
         <h3>Quel est votre ressenti ?</h3>
 
-        <button onclick="voter('Respectueux')">
+        <button type="button" onclick="voter('Respectueux')">
           👍 Respectueux
         </button>
 
-        <button onclick="voter('Mitigé')">
+        <button type="button" onclick="voter('Mitigé')">
           😐 Mitigé
         </button>
 
-        <button onclick="voter('Problématique')">
+        <button type="button" onclick="voter('Problématique')">
           ⚠️ Problématique
         </button>
 
@@ -274,9 +324,44 @@
 
       <div class="review">
 
-        <button onclick="avis()">
+        <button
+          type="button"
+          onclick="afficherFormulaire()">
           ✍️ Donner mon avis
         </button>
+
+        <div class="review-form" id="formulaireAvis">
+
+          <label for="prenom">
+            Votre prénom
+            <span class="optional">(facultatif)</span>
+          </label>
+
+          <input
+            type="text"
+            id="prenom"
+            placeholder="Vous pouvez rester anonyme"
+          >
+
+          <label for="texteAvis">
+            Votre expérience
+          </label>
+
+          <textarea
+            id="texteAvis"
+            placeholder="Décrivez votre expérience..."
+          ></textarea>
+
+          <button
+            type="button"
+            class="publish"
+            onclick="publierAvis()">
+            Publier mon avis
+          </button>
+
+        </div>
+
+        <div id="listeAvis"></div>
 
       </div>
 
@@ -293,7 +378,7 @@
       </p>
 
       <p>
-        Les résultats sont basés sur les participations
+        Les évaluations sont basées sur les participations
         des utilisateurs et ne constituent pas une vérité absolue.
       </p>
 
@@ -336,6 +421,11 @@
         Problématique: 0
       };
 
+      document.getElementById("listeAvis").innerHTML = "";
+
+      document.getElementById("formulaireAvis").style.display =
+        "none";
+
       mettreAJourScore();
 
       window.scrollTo({
@@ -350,9 +440,6 @@
 
       mettreAJourScore();
 
-      alert(
-        "Merci pour votre vote : " + reponse
-      );
     }
 
     function mettreAJourScore() {
@@ -431,14 +518,63 @@
         votes.Problématique;
     }
 
-    function avis() {
+    function afficherFormulaire() {
 
-      alert(
-        "La fonction de publication des avis sera ajoutée prochainement."
-      );
+      const formulaire =
+        document.getElementById("formulaireAvis");
+
+      formulaire.style.display = "block";
+
+      formulaire.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
     }
 
-  </script>
+    function publierAvis() {
 
-</body>
-</html>
+      const prenom =
+        document.getElementById("prenom").value.trim();
+
+      const texte =
+        document.getElementById("texteAvis").value.trim();
+
+      if (texte === "") {
+
+        alert(
+          "Veuillez écrire votre expérience avant de publier."
+        );
+
+        return;
+      }
+
+      const nomAffiche =
+        prenom === ""
+          ? "Anonyme"
+          : prenom;
+
+      const nouvelAvis =
+        document.createElement("div");
+
+      nouvelAvis.className =
+        "avis";
+
+      nouvelAvis.innerHTML =
+        "<strong>" +
+        nomAffiche +
+        "</strong>" +
+        "<p>" +
+        texte +
+        "</p>";
+
+      document.getElementById("listeAvis")
+        .appendChild(nouvelAvis);
+
+      document.getElementById("prenom").value = "";
+
+      document.getElementById("texteAvis").value = "";
+
+      document.getElementById("formulaireAvis").style.display =
+        "none";
+
+     
