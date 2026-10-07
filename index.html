@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>La Vraie Face — Découvrez l'ambiance réelle</title>
+  <title>La Vraie Face</title>
 
-  <meta name="description" content="La Vraie Face permet de découvrir et partager l'ambiance ressentie dans les entreprises, restaurants et commerces.">
+  <meta name="description" content="Découvrez et partagez l'ambiance réelle des entreprises, restaurants et commerces.">
 
   <style>
     * {
@@ -18,20 +18,18 @@
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
-      color: #171717;
-      line-height: 1.6;
+      color: #111;
     }
 
     header {
       background: #111;
       color: white;
-      padding: 28px 20px;
       text-align: center;
+      padding: 30px 20px;
     }
 
     header h1 {
-      font-size: 34px;
-      letter-spacing: 1px;
+      font-size: 32px;
       margin-bottom: 8px;
     }
 
@@ -40,20 +38,20 @@
     }
 
     .hero {
-      text-align: center;
-      padding: 60px 20px;
       background: white;
+      text-align: center;
+      padding: 50px 20px;
     }
 
     .hero h2 {
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 15px;
     }
 
     .hero p {
-      max-width: 650px;
-      margin: 0 auto 30px;
       color: #555;
+      max-width: 650px;
+      margin: 0 auto 25px;
     }
 
     .search {
@@ -65,7 +63,7 @@
 
     .search input {
       flex: 1;
-      padding: 16px;
+      padding: 15px;
       border: 1px solid #ccc;
       border-radius: 10px;
       font-size: 16px;
@@ -81,36 +79,36 @@
       cursor: pointer;
     }
 
-    button:hover {
-      opacity: 0.85;
+    button:active {
+      transform: scale(0.98);
     }
 
     .container {
-      max-width: 900px;
-      margin: 35px auto;
-      padding: 20px;
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 15px;
     }
 
     .card {
       background: white;
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 22px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
     .score {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: bold;
       margin: 15px 0;
     }
 
-    .good {
-      color: #16803c;
-    }
-
     .neutral {
       color: #777;
+    }
+
+    .good {
+      color: #16803c;
     }
 
     .bad {
@@ -122,6 +120,7 @@
     }
 
     .poll button {
+      display: block;
       width: 100%;
       margin-top: 10px;
       background: #eee;
@@ -134,10 +133,10 @@
     }
 
     .message {
-      margin-top: 15px;
-      padding: 15px;
       background: #f5f5f5;
+      padding: 15px;
       border-radius: 10px;
+      margin-top: 15px;
     }
 
     .review {
@@ -150,27 +149,27 @@
 
     .review-form {
       display: none;
-      margin-top: 20px;
+      background: #f5f5f5;
       padding: 20px;
-      background: #f7f7f7;
       border-radius: 12px;
+      margin-top: 15px;
     }
 
     .review-form label {
       display: block;
-      margin-bottom: 5px;
       font-weight: bold;
+      margin-bottom: 6px;
     }
 
     .review-form input,
     .review-form textarea {
       width: 100%;
       padding: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 10px;
-      font-family: Arial, sans-serif;
       font-size: 16px;
+      font-family: Arial, sans-serif;
     }
 
     .review-form textarea {
@@ -184,15 +183,15 @@
       font-weight: normal;
     }
 
-    .review-form .publish {
+    .publish {
       width: 100%;
     }
 
     .avis {
-      margin-top: 20px;
-      padding: 18px;
-      border-left: 4px solid #111;
       background: #fafafa;
+      border-left: 4px solid #111;
+      padding: 15px;
+      margin-top: 15px;
       border-radius: 8px;
     }
 
@@ -207,30 +206,18 @@
     .info p {
       color: #555;
       margin-top: 10px;
+      line-height: 1.6;
     }
 
     footer {
       background: #111;
       color: #aaa;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
+      padding: 25px;
+      margin-top: 30px;
     }
 
     @media (max-width: 600px) {
-
-      header h1 {
-        font-size: 28px;
-      }
-
-      .hero {
-        padding: 45px 18px;
-      }
-
-      .hero h2 {
-        font-size: 25px;
-      }
-
       .search {
         flex-direction: column;
       }
@@ -239,12 +226,12 @@
         width: 100%;
       }
 
-      .container {
-        padding: 15px;
+      .hero h2 {
+        font-size: 24px;
       }
 
       .card {
-        padding: 22px;
+        padding: 20px;
       }
     }
   </style>
@@ -252,276 +239,278 @@
 
 <body>
 
-  <header>
-    <h1>LA VRAIE FACE</h1>
-    <p>Découvrez l'ambiance réelle des entreprises et établissements.</p>
-  </header>
+<header>
+  <h1>LA VRAIE FACE</h1>
+  <p>Découvrez l'ambiance réelle des entreprises et établissements.</p>
+</header>
 
-  <section class="hero">
+<section class="hero">
 
-    <h2>Quelle est la vraie ambiance ?</h2>
+  <h2>Quelle est la vraie ambiance ?</h2>
 
-    <p>
-      Recherchez une entreprise, un restaurant ou un commerce
-      et découvrez les expériences partagées par la communauté.
+  <p>
+    Recherchez une entreprise, un restaurant ou un commerce
+    et découvrez les expériences de la communauté.
+  </p>
+
+  <div class="search">
+
+    <input
+      id="search"
+      type="text"
+      placeholder="Ex : McDonald's"
+    >
+
+    <button type="button" id="searchButton">
+      Rechercher
+    </button>
+
+  </div>
+
+</section>
+
+<main class="container">
+
+  <div class="card">
+
+    <h3 id="nomEtablissement">
+      Aucun établissement recherché
+    </h3>
+
+    <p>Évaluation de la communauté</p>
+
+    <div id="score" class="score neutral">
+      Pas encore évalué
+    </div>
+
+    <p id="description">
+      Recherchez un établissement pour commencer.
     </p>
 
-    <div class="search">
+    <div id="compteur" class="message">
+      Aucun vote pour le moment.
+    </div>
 
-      <input
-        type="text"
-        id="search"
-        placeholder="Ex : Restaurant Dupont"
-      >
+    <div class="poll">
 
-      <button type="button" onclick="rechercher()">
-        Rechercher
+      <h3>Quel est votre ressenti ?</h3>
+
+      <button type="button" id="respectueux">
+        👍 Respectueux
+      </button>
+
+      <button type="button" id="mitige">
+        😐 Mitigé
+      </button>
+
+      <button type="button" id="problematique">
+        ⚠️ Problématique
       </button>
 
     </div>
 
-  </section>
+    <div class="review">
 
-  <main class="container">
+      <button type="button" id="avisButton">
+        ✍️ Donner mon avis
+      </button>
 
-    <div class="card">
+      <div id="formulaireAvis" class="review-form">
 
-      <h3 id="nomEtablissement">
-        Aucun établissement recherché
-      </h3>
+        <label for="prenom">
+          Votre prénom
+          <span class="optional">(facultatif)</span>
+        </label>
 
-      <p>Évaluation de la communauté</p>
+        <input
+          id="prenom"
+          type="text"
+          placeholder="Vous pouvez rester anonyme"
+        >
 
-      <div class="score neutral" id="score">
-        Pas encore évalué
-      </div>
+        <label for="texteAvis">
+          Votre expérience
+        </label>
 
-      <p id="description">
-        Recherchez un établissement pour commencer.
-      </p>
+        <textarea
+          id="texteAvis"
+          placeholder="Décrivez votre expérience..."
+        ></textarea>
 
-      <div class="message" id="compteur">
-        Aucun vote pour le moment.
-      </div>
-
-      <div class="poll">
-
-        <h3>Quel est votre ressenti ?</h3>
-
-        <button type="button" onclick="voter('Respectueux')">
-          👍 Respectueux
-        </button>
-
-        <button type="button" onclick="voter('Mitigé')">
-          😐 Mitigé
-        </button>
-
-        <button type="button" onclick="voter('Problématique')">
-          ⚠️ Problématique
+        <button type="button" id="publierButton" class="publish">
+          Publier mon avis
         </button>
 
       </div>
 
-      <div class="review">
-
-        <button
-          type="button"
-          onclick="afficherFormulaire()">
-          ✍️ Donner mon avis
-        </button>
-
-        <div class="review-form" id="formulaireAvis">
-
-          <label for="prenom">
-            Votre prénom
-            <span class="optional">(facultatif)</span>
-          </label>
-
-          <input
-            type="text"
-            id="prenom"
-            placeholder="Vous pouvez rester anonyme"
-          >
-
-          <label for="texteAvis">
-            Votre expérience
-          </label>
-
-          <textarea
-            id="texteAvis"
-            placeholder="Décrivez votre expérience..."
-          ></textarea>
-
-          <button
-            type="button"
-            class="publish"
-            onclick="publierAvis()">
-            Publier mon avis
-          </button>
-
-        </div>
-
-        <div id="listeAvis"></div>
-
-      </div>
+      <div id="listeAvis"></div>
 
     </div>
 
-    <div class="card info">
+  </div>
 
-      <h3>🛡️ Notre objectif</h3>
+  <div class="card info">
 
-      <p>
-        La Vraie Face permet à chacun de partager son expérience
-        et de mieux comprendre l'ambiance ressentie dans un
-        établissement.
-      </p>
+    <h3>🛡️ Notre objectif</h3>
 
-      <p>
-        Les évaluations sont basées sur les participations
-        des utilisateurs et ne constituent pas une vérité absolue.
-      </p>
+    <p>
+      La Vraie Face permet à chacun de partager son expérience
+      et de mieux comprendre l'ambiance ressentie dans un établissement.
+    </p>
 
-    </div>
+    <p>
+      Les évaluations sont basées sur les participations
+      des utilisateurs et ne constituent pas une vérité absolue.
+    </p>
 
-  </main>
+  </div>
 
-  <footer>
-    © 2026 La Vraie Face — Projet communautaire
-  </footer>
+</main>
 
-  <script>
+<footer>
+  © 2026 La Vraie Face — Projet communautaire
+</footer>
 
-    let votes = {
-      Respectueux: 0,
-      Mitigé: 0,
-      Problématique: 0
+<script>
+
+  /* =========================
+     DONNÉES
+  ========================= */
+
+  let votes = {
+    respectueux: 0,
+    mitige: 0,
+    problematique: 0
+  };
+
+
+  /* =========================
+     RECHERCHE
+  ========================= */
+
+  function rechercher() {
+
+    const champ = document.getElementById("search");
+
+    const recherche = champ.value.trim();
+
+    if (recherche === "") {
+      alert("Écrivez le nom d'une entreprise ou d'un établissement.");
+      return;
+    }
+
+    document.getElementById("nomEtablissement").textContent = recherche;
+
+    votes = {
+      respectueux: 0,
+      mitige: 0,
+      problematique: 0
     };
 
-    function rechercher() {
+    document.getElementById("listeAvis").innerHTML = "";
 
-      const recherche =
-        document.getElementById("search").value.trim();
+    document.getElementById("formulaireAvis").style.display = "none";
 
-      if (recherche === "") {
+    mettreAJourScore();
+  }
 
-        alert(
-          "Écrivez le nom d'une entreprise ou d'un établissement."
-        );
 
-        return;
-      }
+  /* =========================
+     VOTES
+  ========================= */
 
-      document.getElementById("nomEtablissement").textContent =
-        recherche;
+  function voter(type) {
 
-      votes = {
-        Respectueux: 0,
-        Mitigé: 0,
-        Problématique: 0
-      };
+    votes[type] = votes[type] + 1;
 
-      document.getElementById("listeAvis").innerHTML = "";
+    mettreAJourScore();
+  }
 
-      document.getElementById("formulaireAvis").style.display =
-        "none";
 
-      mettreAJourScore();
+  /* =========================
+     SCORE
+  ========================= */
 
-      window.scrollTo({
-        top: 300,
-        behavior: "smooth"
-      });
-    }
+  function mettreAJourScore() {
 
-    function voter(reponse) {
+    const total =
+      votes.respectueux +
+      votes.mitige +
+      votes.problematique;
 
-      votes[reponse]++;
+    const score = document.getElementById("score");
 
-      mettreAJourScore();
+    const description = document.getElementById("description");
 
-    }
+    const compteur = document.getElementById("compteur");
 
-    function mettreAJourScore() {
+    if (total === 0) {
 
-      const total =
-        votes.Respectueux +
-        votes.Mitigé +
-        votes.Problématique;
+      score.textContent = "Pas encore évalué";
 
-      const scoreElement =
-        document.getElementById("score");
+      score.className = "score neutral";
 
-      const description =
-        document.getElementById("description");
-
-      const compteur =
-        document.getElementById("compteur");
-
-      if (total === 0) {
-
-        scoreElement.textContent =
-          "Pas encore évalué";
-
-        scoreElement.className =
-          "score neutral";
-
-        description.textContent =
-          "Il n'y a pas encore assez de données.";
-
-        compteur.textContent =
-          "Aucun vote pour le moment.";
-
-        return;
-      }
-
-      const score =
-        Math.round(
-          (votes.Respectueux / total) * 100
-        );
-
-      scoreElement.textContent =
-        score + "%";
-
-      if (score >= 70) {
-
-        scoreElement.className =
-          "score good";
-
-        description.textContent =
-          "🟢 Les votes indiquent une ambiance plutôt positive.";
-
-      } else if (score >= 40) {
-
-        scoreElement.className =
-          "score neutral";
-
-        description.textContent =
-          "🟡 Les votes indiquent une ambiance mitigée.";
-
-      } else {
-
-        scoreElement.className =
-          "score bad";
-
-        description.textContent =
-          "🔴 Les votes indiquent une ambiance actuellement problématique.";
-      }
+      description.textContent =
+        "Il n'y a pas encore de vote.";
 
       compteur.textContent =
-        total +
-        " vote(s) — 👍 " +
-        votes.Respectueux +
-        " | 😐 " +
-        votes.Mitigé +
-        " | ⚠️ " +
-        votes.Problématique;
+        "Aucun vote pour le moment.";
+
+      return;
     }
 
-    function afficherFormulaire() {
+    const pourcentage =
+      Math.round((votes.respectueux / total) * 100);
 
-      const formulaire =
-        document.getElementById("formulaireAvis");
+    score.textContent = pourcentage + "%";
+
+    if (pourcentage >= 70) {
+
+      score.className = "score good";
+
+      description.textContent =
+        "🟢 Les votes indiquent une ambiance plutôt positive.";
+
+    } else if (pourcentage >= 40) {
+
+      score.className = "score neutral";
+
+      description.textContent =
+        "🟡 Les votes indiquent une ambiance mitigée.";
+
+    } else {
+
+      score.className = "score bad";
+
+      description.textContent =
+        "🔴 Les votes indiquent une ambiance actuellement problématique.";
+    }
+
+    compteur.textContent =
+      total +
+      " vote(s) — 👍 " +
+      votes.respectueux +
+      " | 😐 " +
+      votes.mitige +
+      " | ⚠️ " +
+      votes.problematique;
+  }
+
+
+  /* =========================
+     FORMULAIRE AVIS
+  ========================= */
+
+  function afficherFormulaire() {
+
+    const formulaire =
+      document.getElementById("formulaireAvis");
+
+    if (formulaire.style.display === "block") {
+
+      formulaire.style.display = "none";
+
+    } else {
 
       formulaire.style.display = "block";
 
@@ -530,51 +519,116 @@
         block: "center"
       });
     }
+  }
 
-    function publierAvis() {
 
-      const prenom =
-        document.getElementById("prenom").value.trim();
+  /* =========================
+     PUBLIER AVIS
+  ========================= */
 
-      const texte =
-        document.getElementById("texteAvis").value.trim();
+  function publierAvis() {
 
-      if (texte === "") {
+    const prenom =
+      document.getElementById("prenom").value.trim();
 
-        alert(
-          "Veuillez écrire votre expérience avant de publier."
-        );
+    const texte =
+      document.getElementById("texteAvis").value.trim();
 
-        return;
+    if (texte === "") {
+
+      alert(
+        "Veuillez écrire votre expérience avant de publier."
+      );
+
+      return;
+    }
+
+    const nom =
+      prenom === "" ? "Anonyme" : prenom;
+
+    const avis =
+      document.createElement("div");
+
+    avis.className = "avis";
+
+    const auteur =
+      document.createElement("strong");
+
+    auteur.textContent = nom;
+
+    const contenu =
+      document.createElement("p");
+
+    contenu.textContent = texte;
+
+    avis.appendChild(auteur);
+
+    avis.appendChild(contenu);
+
+    document
+      .getElementById("listeAvis")
+      .appendChild(avis);
+
+    document.getElementById("prenom").value = "";
+
+    document.getElementById("texteAvis").value = "";
+
+    document.getElementById("formulaireAvis").style.display = "none";
+
+    alert("Merci ! Votre avis a été ajouté.");
+  }
+
+
+  /* =========================
+     BOUTONS
+  ========================= */
+
+  document
+    .getElementById("searchButton")
+    .addEventListener("click", rechercher);
+
+  document
+    .getElementById("respectueux")
+    .addEventListener("click", function() {
+      voter("respectueux");
+    });
+
+  document
+    .getElementById("mitige")
+    .addEventListener("click", function() {
+      voter("mitige");
+    });
+
+  document
+    .getElementById("problematique")
+    .addEventListener("click", function() {
+      voter("problematique");
+    });
+
+  document
+    .getElementById("avisButton")
+    .addEventListener("click", afficherFormulaire);
+
+  document
+    .getElementById("publierButton")
+    .addEventListener("click", publierAvis);
+
+
+  /* =========================
+     ENTRÉE CLAVIER
+  ========================= */
+
+  document
+    .getElementById("search")
+    .addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        rechercher();
       }
 
-      const nomAffiche =
-        prenom === ""
-          ? "Anonyme"
-          : prenom;
+    });
 
-      const nouvelAvis =
-        document.createElement("div");
+</script>
 
-      nouvelAvis.className =
-        "avis";
-
-      nouvelAvis.innerHTML =
-        "<strong>" +
-        nomAffiche +
-        "</strong>" +
-        "<p>" +
-        texte +
-        "</p>";
-
-      document.getElementById("listeAvis")
-        .appendChild(nouvelAvis);
-
-      document.getElementById("prenom").value = "";
-
-      document.getElementById("texteAvis").value = "";
-
-      document.getElementById("formulaireAvis").style.display =
-        "none";
-
-     
+</body>
+</html>
